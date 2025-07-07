@@ -25,6 +25,8 @@ public class Team {
     }
 
     public void updateAfterMatch(int teamGoals, int opponentGoals) {
+
+        this.matchesPlayed++;
         
         if (teamGoals > opponentGoals) {
             // Team has won
@@ -49,5 +51,37 @@ public class Team {
 
     public String getName() {
         return this.name;
+    }
+
+    public int getMatchesPlayed() {
+        return this.matchesPlayed;
+    }
+
+    public int getPoints() {
+        return this.points;
+    }
+
+    public int getWins() {
+        return this.wins;
+    }
+
+    public int getTies() {
+        return this.ties;
+    }
+
+    public int getLosses() {
+        return this.losses;
+    }
+
+    public int getGoalsScored() {
+        return this.goalsScored;
+    }
+
+    public int getGoalsAgainst() {
+        return this.goalsAgainst;
+    }
+
+    public int getGoalDifference() {
+        return this.goalDifference;
     }
 }

@@ -12,6 +12,7 @@ public class FootballApp {
                                                     
         League league = new League(teams);
         league.simulateMatchweek();
+        league.printTable();
     }
 
     public static List<Team> createTeams() {
