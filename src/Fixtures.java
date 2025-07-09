@@ -18,6 +18,14 @@ public class Fixtures {
         for (Match match : matches) {
             // Simulate match
             simulateMatch(match);
+
+            // 500 ms ellapsed time between matches
+            try {
+                Thread.sleep(800);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
+            }
         }
     }
 

@@ -53,6 +53,10 @@ public class Team {
         return this.name;
     }
 
+    public String getAbbreviation() {
+        return this.abbreviation;
+    }
+
     public int getMatchesPlayed() {
         return this.matchesPlayed;
     }
