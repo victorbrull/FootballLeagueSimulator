@@ -1,12 +1,12 @@
 # FootballLeagueSimulator
 
-### A football league simulator, using Java, that allows to simulate matches, track team statistics, and manage league standings with continous MySQL database storage.
+### A football league simulator, using Java, that allows to simulate matches, track team statistics, and manage league standings with continuous MySQL database storage.
 
 ## Features
 - **`Interactive Menu`**: Navigate through different options via an intuitive command-line interface.
 - **`Match Simulation`**:: Simulate individual match weeks with score generation.
 - **`Team Statistics`**: Track detailed team performance metrics.
-- **`Database Integration`**: Continous data storage using MySQL database.
+- **`Database Integration`**: Continuous data storage using MySQL database.
 
 ## Project Structure
 ```plaintext
