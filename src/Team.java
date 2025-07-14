@@ -1,5 +1,6 @@
 public class Team {
     
+    private int id;
     private String name;
     private String abbreviation;
     private int matchesPlayed;
@@ -11,7 +12,8 @@ public class Team {
     private int goalsAgainst;
     private int goalDifference;
 
-    public Team(String teamName, String teamAbbreviation) {
+    public Team(String teamName, String teamAbbreviation, int teamID) {
+        this.id = teamID;
         this.name = teamName;
         this.abbreviation = teamAbbreviation;
         this.matchesPlayed = 0;
@@ -24,7 +26,7 @@ public class Team {
         this.goalDifference = 0;
     }
 
-    public void updateAfterMatch(int teamGoals, int opponentGoals) {
+    public void updateTeamStats(int teamGoals, int opponentGoals) {
 
         this.matchesPlayed++;
         
@@ -47,6 +49,10 @@ public class Team {
         this.goalsScored += teamGoals;
         this.goalsAgainst += opponentGoals;
         this.goalDifference = this.goalsScored - this.goalsAgainst;
+    }
+
+    public int getID() {
+        return this.id;
     }
 
     public String getName() {

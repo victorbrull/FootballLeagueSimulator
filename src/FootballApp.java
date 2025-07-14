@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 public class FootballApp {
     public static void main(String [] args) {
-        // To Compile:
-        // javac -d bin src/*.java
-
-        // List<String> teams = new ArrayList<>(List.of("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"));
         
-        System.out.println("Football League Simulator");
+        DatabaseTest test = new DatabaseTest();
+
+        System.out.println("\nFootball League Simulator");
 
         Scanner scan = new Scanner(System.in);
 
@@ -34,7 +32,7 @@ public class FootballApp {
             }
         }
 
-        System.out.println("Thanks for playing");
+        System.out.println("Thanks for playing!");
     }
 
     public static void new_game() {
@@ -62,7 +60,7 @@ public class FootballApp {
                 league.simulateMatchweek();
             }
             else if (option == 2) {
-                league.printTable();
+                league.printSQLTable();
             }
             else if (option == 3) {
 

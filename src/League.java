@@ -8,28 +8,33 @@ public class League {
     private List<Team> teams;
     private Fixtures fixtures;
     private int matchweek;
+    private Database database;
 
     public League() {
+        this.database = new Database(); // Initialises the teams
         this.teams = new ArrayList<>();
         createTeams();
-        this.fixtures = new Fixtures(teams);
+        this.fixtures = new Fixtures(this.teams);
         this.matchweek = 1;
     }
 
     private void createTeams() {
         System.out.println("Creating league and teams...");
-        Team barcelona = new Team("FC Barcelona", "FCB");
+        Team barcelona = new Team("FC Barcelona", "FCB", 1);
         this.teams.add(barcelona);
-        Team realMadrid = new Team("Real Madrid CF", "RM");
+        Team realMadrid = new Team("Real Madrid CF", "RM", 2);
         this.teams.add(realMadrid);
-        Team tottenham = new Team("Tottenham Hotspur FC", "TOT");
+        Team tottenham = new Team("Tottenham Hotspur FC", "TOT", 3);
         this.teams.add(tottenham);
-        Team liverpool = new Team("Liverpool FC", "LIV");
+        Team liverpool = new Team("Liverpool FC", "LIV", 4);
         this.teams.add(liverpool);
-        Team bayern = new Team("FC Bayern Munchen", "BAY");
+        Team bayern = new Team("FC Bayern Munchen", "BAY", 5);
         this.teams.add(bayern);
-        Team atleti = new Team("Club Atletico de Madrid", "ATL");
+        Team atleti = new Team("Club Atletico de Madrid", "ATL", 6);
         this.teams.add(atleti);
+
+        // Create teams also in the database
+        this.database.initializeTeams(this.teams);
     }
 
     public void simulateMatchweek() {
@@ -51,7 +56,7 @@ public class League {
 
     public void printTable() {
 
-        System.out.println("League Table:");
+        System.out.println("LEAGUE TABLE");
         System.out.printf("%-25s %4s %4s %4s %4s %4s %4s %4s %4s%n", "Team", "Pts", "GP", "W", "D", "L" ,"GS", "GA", "GD");
 
         Collections.sort(teams, new Comparator<Team>() {
@@ -75,6 +80,10 @@ public class League {
                                 t.getGoalsScored(), t.getGoalsAgainst(), t.getGoalDifference());
         }
         System.out.println();
+    }
+
+    public void printSQLTable() {
+        this.database.displayLeagueTable();
     }
 
     public void printFixtures() {

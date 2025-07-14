@@ -72,6 +72,8 @@ public class Fixtures {
     private void generateFixtures() {
 
         int numTeams = teams.size();
+        int currentMatchID = 1; // Give to every match a unique ID
+        int currentMatchweek = 0;
 
         // Array to be returned filled with matches
         this.fixtures = new ArrayList<>();
@@ -80,18 +82,21 @@ public class Fixtures {
         for (int leg = 0; leg < 2; leg++) {
             for (int matchweek = 0; matchweek < numTeams - 1; matchweek++) {
                 List<Match> matches = new ArrayList<>();
+                currentMatchweek++;
 
                 // Pair teams
                 for (int i = 0; i < numTeams / 2; i++) {
                     if ((matchweek % 2 == 0 && leg == 0) || (matchweek % 2 == 1 && leg == 1)) {
                         Team home = teams.get(i);
                         Team away = teams.get(numTeams - 1 - i);
-                        matches.add(new Match(home, away));
+                        matches.add(new Match(home, away, currentMatchID, currentMatchweek));
+                        currentMatchID++;
                     }
                     else if ((matchweek % 2 == 0 && leg == 1) || (matchweek % 2 == 1 && leg == 0)) {
                         Team away = teams.get(i);
                         Team home = teams.get(numTeams - 1 - i);
-                        matches.add(new Match(home, away));
+                        matches.add(new Match(home, away, currentMatchID, currentMatchweek));
+                        currentMatchID++;
                     }
                 }
 
